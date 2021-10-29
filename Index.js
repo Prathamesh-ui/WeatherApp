@@ -29,7 +29,7 @@ app.get('/', (req, res)=>{
     })
     
     .on('end', function (err) {
-        if (err) return console.log('connection closed due to errors', err);
+        if (err) return console.log('connection closed due to errors');
         res.end();
     });
 })
