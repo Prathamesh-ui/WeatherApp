@@ -3,7 +3,7 @@ const requests = require('requests');
 const fs = require('fs');
 const express = require('express');
 var app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8000;
 
 const homeFile = fs.readFileSync("index.html", "utf-8");
 
@@ -35,4 +35,4 @@ app.get('/', (req, res)=>{
 })
 
 
-app.listen(8000, "0.0.0.0");
+app.listen(port, "0.0.0.0");
