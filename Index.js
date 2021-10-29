@@ -35,4 +35,6 @@ app.get('/', (req, res)=>{
 })
 
 
-app.listen(port, "http");
+app.listen(port, ()=>{
+    console.log(`listing to port ${port}`);
+});
