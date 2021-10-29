@@ -21,6 +21,10 @@ const replaceVal = (tempval, originalval) => {
 
 app.get('/', (req, res)=>{
     requests(`https://api.openweathermap.org/data/2.5/weather?q=${!req.query.name?q:req.query.name}&appid=8141df562492c31d6b98a32819f7efa8`)
+    .on('error', ()=> {
+        console.log("Error");
+    })
+    
     .on('data', (chunk) => {
         const objData = JSON.parse(chunk);
         const arrData = [objData];
