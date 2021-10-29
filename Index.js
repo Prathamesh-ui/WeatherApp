@@ -28,6 +28,9 @@ app.get('/', (req, res)=>{
         res.write(realTimeData);
     })
     
+    .on('error', ()=> {
+        console.log("Error");
+    })
     .on('end', function (err) {
         if (err) return console.log('connection closed due to errors');
         res.end();
