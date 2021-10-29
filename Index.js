@@ -3,7 +3,7 @@ const requests = require('requests');
 const fs = require('fs');
 const express = require('express');
 var app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 const homeFile = fs.readFileSync("index.html", "utf-8");
 
