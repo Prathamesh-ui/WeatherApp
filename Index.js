@@ -24,17 +24,19 @@ app.get('/', (req, res)=>{
     .on('error', ()=> {
         console.log("Error");
     })
-    
+
     .on('data', (chunk) => {
         const objData = JSON.parse(chunk);
         const arrData = [objData];
+        if(arrData[0].cod == '404'){
+            console.log('Page Not Found');
+        }
+        else{
         const realTimeData = arrData.map((val) => replaceVal(homeFile, val)).join("");
         res.write(realTimeData);
+        }
     })
     
-    .on('error', ()=> {
-        console.log("Error");
-    })
     .on('end', function (err) {
         if (err) return console.log('connection closed due to errors');
         res.end();
