@@ -29,7 +29,7 @@ app.get('/', (req, res)=>{
         const objData = JSON.parse(chunk);
         const arrData = [objData];
         if(arrData[0].cod == '404'){
-            console.log('Page Not Found');
+            res.write('Page Not Found');
         }
         else{
         const realTimeData = arrData.map((val) => replaceVal(homeFile, val)).join("");
